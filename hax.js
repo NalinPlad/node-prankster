@@ -9,13 +9,13 @@ const path = require ('path')
 const notifier = require ('node-notifier');
 const loudness = require ('loudness');
 
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.redirect("/index.html")
+    res.redirect("/index.html");
 })
 
 app.listen(port, () => {
@@ -70,8 +70,14 @@ function evilFunction(data,ws){
           message: data[1]
         })
       }
+    // Send 'hello'
     } else if(data == 'hello'){
       ws.send('Hello ws client!')
+    
+    // Set volume
+    } else if(data[0] == 'vol'){
+      loudness.setVolume(data[1]);
+      console.log("Vol: " + data[1])
     }
 }
 

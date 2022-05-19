@@ -30,3 +30,14 @@ function notify_text(){
 
     socket.send(['notif',msg,ttl])
 }
+
+var slider = document.getElementById("vol_slider");
+var output = document.getElementById("vol_preview");
+
+slider.oninput = function() {
+    output.innerHTML = this.value * 10;
+}
+
+function change_volume(){
+    socket.send(['vol',slider.value * 10])
+}
