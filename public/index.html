@@ -5,24 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+
+        .terminal {
+            background-color: rgb(13, 19, 24);
+            border-radius: 5px;
+            margin: 10px; 
+            padding: 20px;
+        }
+
+        .left {
+            flex: 2;
+        }
+    </style>
 </head>
 <body>
-    <p>Hax 1.0</p>
-    <button onClick="send('hello');">Send a hello to server</button><br/><hr>
+    <div class="left">
+        <h2>Node-prankster</h2>
+        <hr>
+        
+        <p>Ping server</p>
+        <button onClick="send('hello');">Send a hello to server</button><br/><hr>
+        
+        <p>Open a website in default browser</p>
+        <input type="url" id="url" placeholder="Enter URL"></input><br/>
+        <button onClick="open_url();">Send url to server</button><br/><hr>
+    
+        <p>Send a notification/message</p>
+        <input type="text" id="notify_title" placeholder="Enter title"></input></br>
+        <input type="text" id="notify" placeholder="Enter text"></input><br/>
+        <button onClick="notify_text();">Send a message to the server</button><br/><hr>
+        
+        <p>Change system volume</p>
+        <input type="range" min="0" max="10" value="50" id="vol_slider"></input> <p id="vol_preview"></p></br>
+        <button onClick="change_volume();">Send volume</button>
+    </div>
 
-    <input type="url" id="url" placeholder="Enter URL"></input><br/>
-    <button onClick="open_url();">Send url to server</button><br/><hr>
-
-    <input type="text" id="notify_title" placeholder="Enter title"></input></br>
-    <input type="text" id="notify" placeholder="Enter text"></input><br/>
-    <button onClick="notify_text();">Send a message to the server</button><br/><hr>
-
-    <p>Change system volume</p>
-    <input type="range" min="0" max="10" value="50" id="vol_slider"></input> <p id="vol_preview"></p></br>
-    <button onClick="change_volume();">Send volume</button>
+    <div class="right">
+        <div id="out" class="terminal"><h2>Received Messages</h2></div>
+    </div>
 
 
-    <div id="out" style="background-color: grey; border: 1px dashed black; margin: 50px; padding: 10px"><h2>Received Messages</h2></div>
     <script src="index.js"></script>
 </body>
 </html>
