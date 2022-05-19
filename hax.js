@@ -63,9 +63,16 @@ function evilFunction(data,ws){
     // Send Notification
     } else if(data[0] == 'notif'){
       console.log("Notif: " + data[1]);
-      notifier.notify(data[1]);
+      if(data[2] == ''){
+        notifier.notify(data[1]);
+      } else {
+        notifier.notify({
+          title: data[2],
+          message: data[1]
+        })
+      }
     } else if(data == 'hello'){
-      ws.send('Hello ws client')
+      ws.send('Hello ws client!')
     }
 }
 

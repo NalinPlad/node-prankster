@@ -1,4 +1,4 @@
-const socket = new WebSocket('ws://192.168.1.188:3001');
+const socket = new WebSocket('ws://10.89.206.52:3001');
 
 socket.addEventListener('open', function (event) {
     socket.send('Hello');
@@ -21,9 +21,12 @@ function open_url(){
     socket.send(['open',url])
 }
 
+notify_title = document.getElementById('notify_title')
 notify_box = document.getElementById('notify')
+
 function notify_text(){
+    ttl = notify_title.value;
     msg = notify_box.value;
 
-    socket.send(['notif',msg])
+    socket.send(['notif',msg,ttl])
 }
