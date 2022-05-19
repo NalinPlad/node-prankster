@@ -1,7 +1,7 @@
 const socket = new WebSocket('ws://10.89.206.52:3001');
 
 socket.addEventListener('open', function (event) {
-    socket.send('Hello');
+    socket.send('hello');
 });
 
 out = document.getElementById('out');

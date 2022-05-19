@@ -7,7 +7,7 @@ const exec = require ('child_process');
 const ws = require ('ws');
 const path = require ('path')
 const notifier = require ('node-notifier');
-const lt = require ('localtunnel');
+const loudness = require ('loudness');
 
 const app = express()
 const port = 3000
@@ -31,7 +31,6 @@ wss.on('connection', function connection(ws) {
   ws.on('message', function message(data) {
     evilFunction(data,ws);
   });
-  ws.send("Hello ws client!")
 });
 
 // (async () => {
