@@ -10,7 +10,6 @@
         body {
             display: flex;
             flex-direction: row;
-            justify-content: center;
         }
 
 
@@ -18,14 +17,17 @@
             background-color: rgb(21, 27, 34);
             border-radius: 5px;
             margin: 10px; 
+            
             padding: 20px;
             width: 400px;
-           height: 60vh;
-           overflow-y: scroll;
+            height: 60vh;
+            overflow-y: scroll;
+
+            flex: -1
         }
 
         .left {
-            flex: 2;
+            flex: 2
         }
 
         .connected_status {
@@ -58,7 +60,7 @@
 <body>
     <div class="left">
         <h2>Node-prankster</h2>
-        <h5 class="connected_status" id="con_stat"><b>Status: </b></h5>
+        <h5 class="connected_status" id="con_stat"><b>Status: </b></h5> <button onClick="rlWs()">↻</button><br>
         <sub>V1.2 <a href="https://github.com/NalinPlad/node-prankster" target="_blank">Github Repo</a></sub>
         <hr>
     
