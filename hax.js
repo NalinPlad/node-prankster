@@ -11,6 +11,7 @@ const loudness = require ('loudness');
 
 const app = express();
 const port = 3000;
+const ws_port = 3001
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -18,14 +19,22 @@ app.get('/', (req, res) => {
     res.redirect("/index.html");
 })
 
-app.listen(port, () => {
-    require('dns').lookup(require('os').hostname(), function (err, add, fam) {
-        console.log('Navigate to ===> ' + add + ':' + port)
-        
-      })
+
+const clientIp = Object.values(require("os").networkInterfaces())
+        .flat()
+        .filter((item) => !item.internal && item.family === "IPv4")
+        .find(Boolean).address;
+
+app.get('/addr', (req, res) => {
+  res.send(clientIp + ':' + ws_port)
 })
 
-const wss = new ws.WebSocketServer({ port: 3001 });
+
+app.listen(port, () => {  
+  console.log('Navigate to ===> ' + clientIp + ':' + port)  
+})
+
+const wss = new ws.WebSocketServer({ port: ws_port });
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function message(data) {

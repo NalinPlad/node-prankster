@@ -19,19 +19,49 @@
             border-radius: 5px;
             margin: 10px; 
             padding: 20px;
+            width: 400px;
+           height: 60vh;
+           overflow-y: scroll;
         }
 
         .left {
             flex: 2;
+        }
+
+        .connected_status {
+            background-color: rgb(21, 27, 34);
+            border-radius: 5px;
+            width: fit-content;
+            padding: 10px;
+            transition: all 0.5s;
+        }
+
+        .con_green {
+            background-color: rgb(60, 188, 115);
+        }
+
+        .con_red {
+            background-color: rgb(188, 60, 60);
+        }
+
+        .con_yellow {
+            background-color: rgb(217, 153, 79);
+        }
+
+        .serv_text {
+            color:rgb(70, 77, 85);
+            display: inline-block;
+            width: 200px;
         }
     </style>
 </head>
 <body>
     <div class="left">
         <h2>Node-prankster</h2>
-        <sub>V1.2 <a href="https://github.com/NalinPlad/node-prankster">Github Repo</a></sub>
+        <h5 class="connected_status" id="con_stat"><b>Status: </b></h5>
+        <sub>V1.2 <a href="https://github.com/NalinPlad/node-prankster" target="_blank">Github Repo</a></sub>
         <hr>
-        
+    
         <p>Ping server</p>
         <button onClick="send('hello');">Send a hello to server</button><br/><hr>
         
@@ -45,7 +75,7 @@
         <button onClick="notify_text();">Send a message to the server</button><br/><hr>
         
         <p>Change system volume</p>
-        <input type="range" min="0" max="10" value="50" id="vol_slider"></input> <p id="vol_preview"></p></br>
+        <input type="range" min="0" max="10" value="5" id="vol_slider"></input> <p id="vol_preview">50</p></br>
         <button onClick="change_volume();">Send volume</button>
     </div>
 
