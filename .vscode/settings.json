@@ -1,4 +1,4 @@
 {
-    "discord.enabled": false,
-    "rpc.enabled": false
+    "discord.enabled": true,
+    "rpc.enabled": true
 }
