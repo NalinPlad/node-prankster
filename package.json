@@ -12,6 +12,8 @@
     "localtunnel": "^2.0.2",
     "loudness": "^0.4.1",
     "node-notifier": "^10.0.1",
-    "node-notify": "^1.0.0"
+    "node-notify": "^1.0.0",
+    "open": "^8.4.0",
+    "package.json": "^2.0.1"
   }
 }
