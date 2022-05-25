@@ -13,6 +13,11 @@
     "loudness": "^0.4.1",
     "node-notifier": "^10.0.1",
     "node-notify": "^1.0.0",
+<<<<<<< HEAD
     "robot": "^0.3.0"
+=======
+    "open": "^8.4.0",
+    "package.json": "^2.0.1"
+>>>>>>> f952a652756d687d1a77955b1e50ae100aa7a525
   }
 }
